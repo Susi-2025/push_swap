@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/04 18:36:45 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:08:03 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -46,17 +46,24 @@ int main(int argc, char **argv)
 	//printf("- -\n");
 	//printf("a");
 	//return (1);
-	//sort
-	while (i < (argc - 1)/ 2)
-	{
-		i = 0;
-		while (a[i] > a[i + 1] || a[i] > a[argc - i - 1])
-		{
-			sa(a, i);
-			ra(a, i);
-		}
-		if (a[i] <= a[i] && a[i] <= a[argc - i - 1])
-			pa(a, i);
+	/*sort
+	the action allowed only: sa, ra, pa.
+	At first, stack A has value, we compare the position i with i++ and the last position.
+	We move the minimum to position i, copy it to stack B, move the pointer to the second one and continue to do it.
+	When the stack B has 3 value. Start to sort it to make sure the maximum in the last position.
+	The loop will stop until the pointer reach the end of stack - 2. Just did the sort for the last one.
+	- The memory of stack b will be argc - 3. 
+	*/
+	//while (i < (argc - 1)/ 2)
+	//{
+	//	i = 0;
+	//	while (a[i] > a[i + 1] || a[i] > a[argc - i - 1])
+	//	{
+	//		sa(a, i);
+	//		ra(a, i);
+	//	}
+	//	if (a[i] <= a[i] && a[i] <= a[argc - i - 1])
+	//		pa(a, i);
 }
 
 int	check_input(int argc, char **argv)
