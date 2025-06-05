@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/05 13:08:03 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:16:40 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -53,7 +53,11 @@ int main(int argc, char **argv)
 	When the stack B has 3 value. Start to sort it to make sure the maximum in the last position.
 	The loop will stop until the pointer reach the end of stack - 2. Just did the sort for the last one.
 	- The memory of stack b will be argc - 3. 
+	- Find the minimum, maximum in 3 number. 
+	- Move the minimum to the top, maximum the last, the remain to the next top for stack A.
+	- Move the minimum to the last, maximum the top, the main to the next last for stack B.
 	*/
+
 	//while (i < (argc - 1)/ 2)
 	//{
 	//	i = 0;
