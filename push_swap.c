@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 14:05:03 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/12 19:04:28 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,14 @@
 
 int main(int argc, char **argv)
 {
-	int	*a;
-	int	i;
+	t_list	*a;
 
-	i = 0;
 	if (argc <= 1)
 		return (error_handler(-1));
-	a = parsing(argc, argv);
+	a = parsing_list(argc, argv);
 	if (!a)
 		return (error_handler(-1));
-	//print array
-	while(a[i])
-	{
-		printf("%d\n",a[i]);
-		i++;
-	}
-	free(a);
+	ft_print_list(a);
+	//free(a);
 	return (0);
 }

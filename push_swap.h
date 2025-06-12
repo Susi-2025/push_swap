@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:13:11 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 14:54:35 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/12 19:09:17 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,18 @@ typedef struct s_list{
 	struct s_list	*next; 
 }t_list;
 
-int		*parsing(int argc, char **argv);
+t_list	*parsing_list(int argc, char **argv);
 int		check_input(int argc, char **argv);
 int		check_valid(char *str);
 
-int		*input_to_array(int argc, char **argv, int *a);
+t_list	*input_to_link_list(int argc, char **argv);
 int		ft_atoi(char *s);
+
+t_list	*ft_new_node(int number);
+void	ft_list_add_front(t_list **list, t_list *new_node);
+void	ft_list_add_back(t_list **list, t_list *new_node);
+int		ft_list_size(t_list *list);
+void	ft_print_list(t_list *list);
 
 int		error_handler(int error);
 

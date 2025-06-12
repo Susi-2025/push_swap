@@ -6,22 +6,18 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 13:33:27 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/12 19:05:35 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	*parsing(int argc, char **argv)
+t_list	*parsing_list(int argc, char **argv)
 {
-	int	*out;
-
+	t_list	*list;
 	if (check_input(argc, argv) == -1)
 		return (NULL);
-	out = (int *)malloc((argc) * sizeof(int));
-	if (!out)
-		return (NULL);
-	out = input_to_array(argc, argv, out);
-	return (out);
+	list = input_to_link_list(argc, argv);
+	return (list);
 }
 
 int	check_input(int argc, char **argv)
@@ -66,15 +62,19 @@ int check_valid(char *str)
 	return (1);
 }
 
-int	*input_to_array(int argc, char **argv, int *a)
+t_list	*input_to_link_list(int argc, char **argv)
 {
-	int	i;
+	t_list	*list;
+	t_list	*node;
+	int		i;
 
-	i = 0;
-	while(i < argc - 1)
+	list = NULL;
+	i = 1;
+	while (i < argc)
 	{
-		a[i] = ft_atoi(argv[i + 1]);
+		node = ft_new_node(ft_atoi(argv[i]));
+		ft_list_add_back(&list, node);
 		i++;
 	}
-	return (a);
+	return (list);
 }

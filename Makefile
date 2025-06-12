@@ -6,7 +6,7 @@
 #    By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/12 11:30:17 by vinguyen          #+#    #+#              #
-#    Updated: 2025/06/12 14:05:21 by vinguyen         ###   ########.fr        #
+#    Updated: 2025/06/12 18:41:26 by vinguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC =	push_swap.c \
 		parsing.c \
 		operation.c \
 		error_handler.c \
+		link_list_operation.c \
 		push_swap_utils.c
 
 OBJ = $(SRC:.c=.o)
