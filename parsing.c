@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 19:05:35 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/12 20:23:54 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -73,6 +73,11 @@ t_list	*input_to_link_list(int argc, char **argv)
 	while (i < argc)
 	{
 		node = ft_new_node(ft_atoi(argv[i]));
+		if (node == NULL)
+		{
+			ft_free_list(list);
+			return (NULL);
+		}
 		ft_list_add_back(&list, node);
 		i++;
 	}

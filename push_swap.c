@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 19:04:28 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/12 20:27:31 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int main(int argc, char **argv)
 	if (!a)
 		return (error_handler(-1));
 	ft_print_list(a);
-	//free(a);
+	ft_free_list(a);
 	return (0);
 }

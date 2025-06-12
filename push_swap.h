@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:13:11 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 19:09:17 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/12 20:26:46 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_list	*ft_new_node(int number);
 void	ft_list_add_front(t_list **list, t_list *new_node);
 void	ft_list_add_back(t_list **list, t_list *new_node);
 int		ft_list_size(t_list *list);
+void	ft_free_list(t_list *list);
 void	ft_print_list(t_list *list);
 
 int		error_handler(int error);

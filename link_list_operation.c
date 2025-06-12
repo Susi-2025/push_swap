@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 14:30:10 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 18:39:18 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/12 20:25:58 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,18 @@ int	ft_list_size(t_list *list)
 		list = list->next;
 	}
 	return (i);
+}
+
+void	ft_free_list(t_list *list)
+{
+	t_list	*temp;
+
+	while (list)
+	{
+		temp = list->next;
+		free(list);
+		list = temp;
+	}
 }
 
 void ft_print_list(t_list *list)
