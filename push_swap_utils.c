@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 14:05:03 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/12 11:04:59 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	ft_atoi(char *s)
 {
-	int	*a;
+	int	res;
+	int sig;
 	int	i;
 
+	res = 0;
+	sig = 1;
 	i = 0;
-	if (argc <= 1)
-		return (error_handler(-1));
-	a = parsing(argc, argv);
-	if (!a)
-		return (error_handler(-1));
-	//print array
-	while(a[i])
+	if (s[i] == '+' || s[i] == '-')
 	{
-		printf("%d\n",a[i]);
+		if(s[i] == '-')
+			sig = -1;
 		i++;
 	}
-	free(a);
-	return (0);
+	while (s[i])
+	{
+		res = res * 10;
+		res = res + (s[i] - '0');
+		i++;
+	}
+	return (res * sig);
 }

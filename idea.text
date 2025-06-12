@@ -1,0 +1,9 @@
+the action allowed only: sa, ra, pa.
+	At first, stack A has value, we compare the position i with i++ and the last position.
+	We move the minimum to position i, copy it to stack B, move the pointer to the second one and continue to do it.
+	When the stack B has 3 value. Start to sort it to make sure the maximum in the last position.
+	The loop will stop until the pointer reach the end of stack - 2. Just did the sort for the last one.
+	- The memory of stack b will be argc - 3. 
+	- Find the minimum, maximum in 3 number. 
+	- Move the minimum to the top, maximum the last, the remain to the next top for stack A.
+	- Move the minimum to the last, maximum the top, the main to the next last for stack B.

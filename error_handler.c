@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 14:05:03 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/12 14:04:01 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	error_handler(int error)
 {
-	int	*a;
-	int	i;
-
-	i = 0;
-	if (argc <= 1)
-		return (error_handler(-1));
-	a = parsing(argc, argv);
-	if (!a)
-		return (error_handler(-1));
-	//print array
-	while(a[i])
+	if (error == -1)
 	{
-		printf("%d\n",a[i]);
-		i++;
+		write(2, "Error\n", 6);
+		return (1);
 	}
-	free(a);
-	return (0);
+	else
+		return (0);
 }
