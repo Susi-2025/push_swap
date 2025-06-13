@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:13:11 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 20:26:46 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/13 15:44:51 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ void	ft_print_list(t_list *list);
 
 int		error_handler(int error);
 
-void	sa(int *a, int i);
-void	ss(int *a, int *b, int i);
-void	pa(int *a, int *b, int i);
-void	ra(int *a);
-void	rr(int *a, int *b);
-void	rra(int *a);
-void	rrr(int *a, int *b);
+void	swap(t_list **list);
+void	sa(t_list **a);
+void	sb(t_list **b);
+void	ss(t_list **a, t_list **b);
 
+void	rotate(t_list **list);
+void	reverse_rotate(t_list **list);
+void	push(t_list **list1, t_list **list2);
 #endif

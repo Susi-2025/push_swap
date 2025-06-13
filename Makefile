@@ -6,7 +6,7 @@
 #    By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/12 11:30:17 by vinguyen          #+#    #+#              #
-#    Updated: 2025/06/12 18:41:26 by vinguyen         ###   ########.fr        #
+#    Updated: 2025/06/13 15:41:21 by vinguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = push_swap
 
 SRC =	push_swap.c \
 		parsing.c \
-		operation.c \
+		basic_op.c \
+		sort_basic.c \
 		error_handler.c \
 		link_list_operation.c \
 		push_swap_utils.c
