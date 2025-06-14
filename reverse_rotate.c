@@ -1,44 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_basic.c                                       :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/13 15:35:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/13 15:45:54 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/14 14:57:17 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list **a)
+void	rra(t_list **a)
 {
-	swap(a);
+	reverse_rotate(a);
 }
 
-void	sb(t_list **b)
+void	rrb(t_list **b)
 {
-	swap(b);
+	reverse_rotate(b);
 }
 
-void	ss(t_list **a, t_list **b)
+void	rrr(t_list **a, t_list **b)
 {
-	sa(a);
-	sb(b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 }
 
-void    swap(t_list **list)
+void	reverse_rotate(t_list **list)
 {
-    t_list  *first;
-    t_list  *second;
+	t_list	*first;
+	t_list	*pre_last;
+	t_list	*last;
 
-    if (!list || !*list || !(*list)->next)
-        return;
-    first = *list;
-    second = (*list)->next;
-    first->next = second->next;
-    second->next = first;
-    *list = second;
+	if (!list || !(*list) || !(*list)->next)
+		return ;
+	first = *list;
+	last = *list;
+	while (last->next)
+	{
+		pre_last = last;
+		last = last->next;
+	}
+	pre_last->next = NULL;
+	last->next = first;
+	*list = last;
 }
-

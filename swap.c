@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/14 15:03:17 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/06/13 15:35:15 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/14 15:05:32 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	ft_atoi(char *s)
+void	sa(t_list **a)
 {
-	int	res;
-	int	sig;
-	int	i;
+	swap(a);
+}
 
-	res = 0;
-	sig = 1;
-	i = 0;
-	if (s[i] == '+' || s[i] == '-')
-	{
-		if (s[i] == '-')
-			sig = -1;
-		i++;
-	}
-	while (s[i])
-	{
-		res = res * 10;
-		res = res + (s[i] - '0');
-		i++;
-	}
-	return (res * sig);
+void	sb(t_list **b)
+{
+	swap(b);
+}
+
+void	ss(t_list **a, t_list **b)
+{
+	sa(a);
+	sb(b);
+}
+
+void	swap(t_list **list)
+{
+	t_list	*first;
+	t_list	*second;
+
+	if (!list || !*list || !(*list)->next)
+		return ;
+	first = *list;
+	second = (*list)->next;
+	first->next = second->next;
+	second->next = first;
+	*list = second;
 }

@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/12 20:23:54 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/14 14:59:33 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -14,6 +14,7 @@
 t_list	*parsing_list(int argc, char **argv)
 {
 	t_list	*list;
+
 	if (check_input(argc, argv) == -1)
 		return (NULL);
 	list = input_to_link_list(argc, argv);
@@ -32,24 +33,21 @@ int	check_input(int argc, char **argv)
 		while (argv[i])
 		{
 			if (check_valid(argv[i]) == -1)
-			{
 				return (-1);
-				//printf("Error at %d position \n", i);
-			}
 			i++;
 		}
 	}
 	return (1);
 }
 
-int check_valid(char *str)
+int	check_valid(char *str)
 {
 	int	i;
 
 	i = 0;
 	if (str[0] == '-' || str[0] == '+')
 	{
-		if(!str[1])
+		if (!str[1])
 			return (-1);
 		i++;
 	}
