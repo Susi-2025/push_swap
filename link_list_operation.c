@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 14:30:10 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/14 19:45:05 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/15 16:02:11 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	ft_list_size(t_list *list)
 	while (list)
 	{
 		i++;
+		list->position = i - 1;
 		list = list->next;
 	}
 	return (i);
@@ -78,9 +79,10 @@ void	ft_free_list(t_list *list)
 
 void	ft_print_list(t_list *list)
 {
+	printf("Value	Indi	Pos	C_Cost	Tar_Cost	Tot_Cost\n");
 	while (list)
 	{
-		printf("%d	%d\n", list->content, list->indices);
+		printf("%d	%d	%d	%d	%d		%d\n", list->content, list->indices, list->position, list->cost_current, list->cost_target, list->total_cost);
 		list = list->next;
 	}
 }

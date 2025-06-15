@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/14 15:03:17 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/15 16:16:51 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -33,4 +33,12 @@ int	ft_atoi(char *s)
 		i++;
 	}
 	return (res * sig);
+}
+
+int	ft_abs(int no)
+{
+	if (no >= 0)
+		return (no);
+	else
+		return(-no);
 }
