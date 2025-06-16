@@ -1,45 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/14 15:03:54 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/06/15 12:34:14 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/16 16:21:57 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_list **a)
+void	sort_big(t_list **a, t_list **b, int size)
 {
-	rotate(a);
-}
+	int	i;
+	int	j;
+	int	max_bits;
 
-void	rb(t_list **b)
-{
-	rotate(b);
-}
-
-void	rr(t_list **a, t_list **b)
-{
-	ra(a);
-	rb(b);
-}
-
-void	rotate(t_list **list)
-{
-	t_list	*first;
-	t_list	*last;
-
-	if (!list || !*list || !(*list)->next)
-		return ;
-	first = *list;
-	*list = first->next;
-	last = *list;
-	while (last->next)
-		last = last->next;
-	last->next = first;
-	first->next = NULL;
+	max_bits = 0;
+	while ((size >> max_bits) != 0)
+		max_bits++;
+	i = 0;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < size)
+		{
+			if ((((*a)->indices >> i) & 1) == 0)
+				pb(a, b);
+			else
+				ra(a);
+			j++;
+		}
+		while (*b)
+			pa(b, a);
+		i++;
+	}
 }

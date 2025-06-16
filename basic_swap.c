@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   basic_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/16 16:13:28 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/06/13 15:35:15 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/14 15:05:32 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	sa(t_list **a)
 {
-	t_list	*a;
-	int		size;
+	swap(a);
+}
 
-	if (argc <= 1)
-		return (error_handler(-1));
-	a = parsing_list(argc, argv);// not yet checking duplicate
-	if (!a)
-		return (error_handler(-1));
-	size = ft_list_size(a);
-	initial(a);
-	printf("List a before sorting:\n");
-	ft_print_list(a);
+void	sb(t_list **b)
+{
+	swap(b);
+}
 
-	sort_function(&a, size);
-//	ft_free_list(b);
-	printf("List a after sorting:\n");
-	ft_print_list(a);
+void	ss(t_list **a, t_list **b)
+{
+	sa(a);
+	sb(b);
+}
 
-	ft_free_list(a);
-	return (0);
+void	swap(t_list **list)
+{
+	t_list	*first;
+	t_list	*second;
+
+	if (!list || !*list || !(*list)->next)
+		return ;
+	first = *list;
+	second = (*list)->next;
+	first->next = second->next;
+	second->next = first;
+	*list = second;
 }

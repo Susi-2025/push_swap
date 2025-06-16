@@ -6,13 +6,73 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 12:34:14 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/15 18:52:25 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:19:18 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	cal_cost(t_list	*a)
+
+void    assign_array(t_list *a, int *out, int size)
+{
+    int     i;
+    t_list  *temp;
+
+    i = 0; 
+    temp = a;
+    while (i < size && temp)
+    {
+        out[i] = temp->value;
+        i++; 
+        temp = temp->next;
+    }
+}
+
+void    sort_array(int *out, int size)
+{
+    int i;
+    int j;
+    int temp;
+
+    i = 0;
+    while (i < size - 1)
+    {
+        j = i + 1;
+        while (j < size)
+        {
+            if (out[i] > out [j])
+            {
+                temp = out[i];
+                out[i] = out[j];
+                out[j] = temp;
+            }
+            j++;
+        }
+        i++;
+    }
+}
+
+void    assign_indices(t_list *a, int *out, int size)
+{
+    int i;
+
+    while (a)
+    {
+        i = 0;
+        while (i < size)
+        {
+            if (a->value == out[i])
+            {
+                a->indices = i;
+                break ;
+            }
+            i++;
+        }
+        a = a->next;
+    }
+}
+
+void	initial(t_list	*a)
 {
 	int	size;
 	int	*temp_array;
@@ -23,10 +83,6 @@ void	cal_cost(t_list	*a)
         return ;
     assign_array(a, temp_array, size);
     sort_array(temp_array, size);
-    printf("Value of array after sorting:\n");
-    for (int i = 0; i < size; i++)
-        printf("%d ", temp_array[i]);
-    printf("\n");
 	assign_indices(a, temp_array, size);
 	while (a)
 	{
@@ -44,57 +100,3 @@ void	cal_cost(t_list	*a)
 	free(temp_array);
 }
 
-t_list	*find_min_cost(t_list *a, int size)// wrong in calculation
-{
-	int		min_cost;
-	int		min_target;
-	t_list	*min_node;
-
-	min_cost = INT_MAX;
-	min_target = size;
-	min_node = a;
-	while (a)
-	{
-		if (a->total_cost <= min_cost && a->indices < min_target)
-		{
-			min_cost = a->total_cost;
-			min_target = a->indices;
-			min_node = a;
-		}
-		a = a->next;
-	}
-	return (min_node);
-}
-
-void	tiny_sort(t_list **a, t_list **b, int size)
-{
-	t_list	*min_node;
-	
-	while (ft_list_size(*a) > 3)
-	{
-		cal_cost(*a);
-		min_node = find_min_cost(*a, size);
-		printf("Node needs to be move is: %d\n", min_node->content);
-		move_minimum(a, b, min_node);
-		printf("List a after moving:\n");
-		ft_print_list(*a);
-	}
-}
-
-void	move_minimum(t_list **a, t_list **b, t_list *min_node)
-{
-	int	rot;
-	int	i;
-
-	rot = min_node->cost_current;
-	i = 0;
-	while (i < ft_abs(rot))
-	{
-		if (rot < 0)
-			rra(a);
-		else
-			ra(a);
-		i++;
-	}
-	pb(a, b);
-}

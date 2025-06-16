@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   basic_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/13 15:35:15 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/14 15:05:32 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/14 15:02:05 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list **a)
+void	pa(t_list **b, t_list **a)
 {
-	swap(a);
+	push(b, a);
 }
 
-void	sb(t_list **b)
+void	pb(t_list **a, t_list **b)
 {
-	swap(b);
+	push(a, b);
 }
 
-void	ss(t_list **a, t_list **b)
+void	push(t_list **list1, t_list **list2)
 {
-	sa(a);
-	sb(b);
-}
+	t_list	*head1;
 
-void	swap(t_list **list)
-{
-	t_list	*first;
-	t_list	*second;
-
-	if (!list || !*list || !(*list)->next)
+	if (!list1 ||!(*list1))
 		return ;
-	first = *list;
-	second = (*list)->next;
-	first->next = second->next;
-	second->next = first;
-	*list = second;
+	head1 = *list1;
+	*list1 = head1->next;
+	head1->next = *list2;
+	*list2 = head1;
 }

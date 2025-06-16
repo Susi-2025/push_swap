@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 14:30:10 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/15 16:02:11 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/16 12:30:09 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_list	*ft_new_node(int number)
 	new_node = (t_list *)malloc(sizeof(t_list));
 	if (!new_node)
 		return (NULL);
-	new_node->content = number;
+	new_node->value = number;
 	new_node->next = NULL;
 	return (new_node);
 }
@@ -82,7 +82,7 @@ void	ft_print_list(t_list *list)
 	printf("Value	Indi	Pos	C_Cost	Tar_Cost	Tot_Cost\n");
 	while (list)
 	{
-		printf("%d	%d	%d	%d	%d		%d\n", list->content, list->indices, list->position, list->cost_current, list->cost_target, list->total_cost);
+		printf("%d	%d	%d	%d	%d		%d\n", list->value, list->indices, list->position, list->cost_current, list->cost_target, list->total_cost);
 		list = list->next;
 	}
 }
