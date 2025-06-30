@@ -6,26 +6,26 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:48:43 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 21:23:41 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/30 21:30:26 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static	void	check_ac2(char *str);
-static	int	check_ac2_numbers(char **numbers);
+//static	void	check_ac2(char *str);
+//static	int	check_ac2_numbers(char **numbers);
 static	int	check_valid_no(char *str);
 
 void	parsing(int ac, char **av)
 {
 	int	i;
 
-	if (ac < 2)
+	if (ac <= 2)
 		error("No of argument is not enough");
-	else if (ac == 2)
-		check_ac2(av[1]);
+//	else if (ac == 2)
+//		check_ac2(av[1]);
 	i = 1;
-	while (ac > 2 && av[i])
+	while (av[i])
 	{
 		if (check_valid_no(av[i]) == -1)
 		{
@@ -34,7 +34,7 @@ void	parsing(int ac, char **av)
 		i++;
 	}
 }
-
+/*
 static	void	check_ac2(char *str)
 {
 	int		i;
@@ -74,7 +74,7 @@ static	int	check_ac2_numbers(char **numbers)
 	}
 	return (0);
 }
-
+*/
 static	int	check_valid_no(char *str)
 {
 	int	i;
