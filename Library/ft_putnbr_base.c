@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 19:59:27 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/05/20 16:23:21 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/29 16:42:50 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "library.h"
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+int	ft_putnbr_base(long long number, char *base, int i)
 {
-	int	i = 1;
-	while (av[i])
+	int					res;
+	unsigned long long	new_no;
+
+	res = 0;
+	if (number < 0)
 	{
-		ft_printf("Value of argument: %s\n", av[i]);
-		i++;
+		new_no = (unsigned long long)(-number);
+		res += ft_putchar('-');
 	}
-	parsing(ac, av);
-	return (0);
+	else
+		new_no = (unsigned long long)(number);
+	if (new_no / i > 0)
+		res += ft_putnbr_base(new_no / i, base, i);
+	res += ft_putchar(base[new_no % i]);
+	return (res);
 }

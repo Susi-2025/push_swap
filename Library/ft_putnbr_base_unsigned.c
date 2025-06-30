@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base_unsigned.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 19:59:27 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/05/26 12:21:19 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/29 16:43:03 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "library.h"
 
-int	main(int ac, char **av)
+int	ft_putnbr_base_unsigned(unsigned long long number, char *base, int i)
 {
-	int	i = 1;
-	while (av[i])
-	{
-		ft_printf("Value of argument: %s\n", av[i]);
-		i++;
-	}
-	parsing(ac, av);
-	return (0);
+	int	res;
+
+	res = 0;
+	if (number / i > 0)
+		res += ft_putnbr_base_unsigned (number / i, base, i);
+	res += ft_putchar(base[number % i]);
+	return (res);
 }

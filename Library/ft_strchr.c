@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 19:59:27 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/04/16 15:07:20 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/28 11:51:43 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "library.h"
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i = 1;
-	while (av[i])
+	const char		*p;
+	unsigned char	ch;
+
+	p = s;
+	ch = (unsigned char)c ;
+	while (*p)
 	{
-		ft_printf("Value of argument: %s\n", av[i]);
-		i++;
+		if (*p == ch)
+			return ((char *)p);
+		p++;
 	}
-	parsing(ac, av);
-	return (0);
+	if (ch == '\0')
+		return ((char *)p);
+	return (NULL);
 }

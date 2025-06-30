@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 19:59:27 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/05/20 15:49:44 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/29 16:42:34 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "library.h"
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+int	ft_putchar(int c)
 {
-	int	i = 1;
-	while (av[i])
-	{
-		ft_printf("Value of argument: %s\n", av[i]);
-		i++;
-	}
-	parsing(ac, av);
-	return (0);
+	if (write(1, &c, 1) == -1)
+		return (-1);
+	return (1);
 }

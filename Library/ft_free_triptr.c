@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_free_triptr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 19:59:27 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/06/27 15:36:23 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/28 11:53:04 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "library.h"
 
-int	main(int ac, char **av)
+void	ft_free_triptr(char ***str)
 {
-	int	i = 1;
-	while (av[i])
+	int	i;
+
+	i = 0;
+	if (*str)
 	{
-		ft_printf("Value of argument: %s\n", av[i]);
-		i++;
+		while ((*str)[i] != NULL)
+		{
+			free((*str)[i]);
+			i++;
+		}
+		free(*str);
+		*str = NULL;
 	}
-	parsing(ac, av);
-	return (0);
 }

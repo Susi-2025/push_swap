@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 19:59:27 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/04/15 10:11:02 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/28 11:52:22 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "library.h"
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+size_t	ft_strlen(const char *s)
 {
-	int	i = 1;
-	while (av[i])
-	{
-		ft_printf("Value of argument: %s\n", av[i]);
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
 		i++;
-	}
-	parsing(ac, av);
-	return (0);
+	return (i);
 }

@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   error_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 19:59:27 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/05/28 09:57:15 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/12 14:04:01 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	error_handler(int error)
 {
-	int	i = 1;
-	while (av[i])
+	if (error == -1)
 	{
-		ft_printf("Value of argument: %s\n", av[i]);
-		i++;
+		write(2, "Error\n", 6);
+		return (1);
 	}
-	parsing(ac, av);
-	return (0);
+	else
+		return (0);
 }
