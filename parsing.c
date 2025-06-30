@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:48:43 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 20:59:51 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/06/30 21:23:41 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	parsing(int ac, char **av)
 	{
 		if (check_valid_no(av[i]) == -1)
 		{
-			break ;
 			error("Invalid argument");
 		}
 		i++;
@@ -40,7 +39,7 @@ static	void	check_ac2(char *str)
 {
 	int		i;
 	char	**numbers;
-	
+
 	i = 0;
 	while (str[i])
 	{
@@ -50,15 +49,9 @@ static	void	check_ac2(char *str)
 		i++;
 	}
 	numbers = ft_split(str, ' ');
-	i = 0;
-	while (numbers[i])
-	{
-		ft_printf("Value of split: %s\n", numbers[i]);
-		i++;
-	}
 	if (!numbers)
 		error("Allocate fail");
-	if (check_ac2_numbers(numbers) == -1)	
+	if (check_ac2_numbers(numbers) == -1)
 	{
 		ft_free_triptr(&numbers);
 		error("Invalid number in first argument");
@@ -75,7 +68,6 @@ static	int	check_ac2_numbers(char **numbers)
 	{
 		if (check_valid_no(numbers[i]) == -1)
 		{
-			break ;
 			return (-1);
 		}
 		i++;
@@ -91,17 +83,16 @@ static	int	check_valid_no(char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (!str[1])
-			return (0);
+			return (-1);
 		i++;
 	}
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
 		{
-			break ;
 			return (-1);
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
