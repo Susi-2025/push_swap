@@ -6,7 +6,7 @@
 #    By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/30 16:05:03 by vinguyen          #+#    #+#              #
-#    Updated: 2025/07/01 16:32:46 by vinguyen         ###   ########.fr        #
+#    Updated: 2025/07/01 18:45:37 by vinguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,10 @@ SRC =	push_swap.c \
 		parsing.c \
 		read_argument.c \
 		initial.c \
+		sort_algorithm.c \
 		error_handler.c \
 		utils.c \
+		sort_command.c \
 
 OBJ = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
 

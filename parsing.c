@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:48:43 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/01 11:58:54 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/01 20:44:02 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	parsing(int ac, char **av)
 	int	i;
 
 	if (ac <= 2)
-		error("No of argument is not enough");
+		error(EXIT_FAILURE);
 	i = 1;
 	while (av[i])
 	{
 		if (check_valid_no(av[i]) == -1)
 		{
-			error("Invalid argument");
+			error(EXIT_FAILURE);
 		}
 		i++;
 	}
