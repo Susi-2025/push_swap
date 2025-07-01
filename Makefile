@@ -6,7 +6,7 @@
 #    By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/30 16:05:03 by vinguyen          #+#    #+#              #
-#    Updated: 2025/06/30 19:14:04 by vinguyen         ###   ########.fr        #
+#    Updated: 2025/07/01 16:32:46 by vinguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,11 @@ LIB_OBJ = $(LIB_SRC:.c=.o)
 #Project file
 
 SRC =	push_swap.c \
-		parsing.c\
+		parsing.c \
+		read_argument.c \
+		initial.c \
 		error_handler.c \
+		utils.c \
 
 OBJ = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
 

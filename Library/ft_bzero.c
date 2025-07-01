@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/01 16:34:03 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/04/15 12:51:50 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/06/28 11:50:27 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "library.h"
 
-#include "push_swap.h"
-
-int	main(int ac, char **av)
+void	ft_bzero(void *s, size_t n)
 {
-	int		*out;
-	t_stack	a;
+	unsigned char	*p;
+	size_t			i;
 
-	parsing(ac, av);
-	out = read_argument(ac, av);
-	ft_bzero(&a, sizeof(a));
-	initial(&a, out, ac - 1);
-	ft_print_stack(a);
-	free(a.arr);
-	return (0);
+	i = 0;
+	p = (unsigned char *)s;
+	while (i < n)
+	{
+		p[i] = 0;
+		i++;
+	}
 }

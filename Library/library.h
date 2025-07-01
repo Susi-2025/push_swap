@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:12:08 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 20:53:32 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/01 12:20:15 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *str);
+void	ft_bzero(void *s, size_t n);
 char	*ft_strchr(const char *s, int c);
 void	ft_free_triptr(char ***str);
 char	**ft_split(char const *s, char c);

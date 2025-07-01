@@ -1,54 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   initial.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/30 16:48:43 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/01 11:58:54 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/07/01 14:35:25 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/07/01 16:44:10 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static	int	check_valid_no(char *str);
-
-void	parsing(int ac, char **av)
-{
-	int	i;
-
-	if (ac <= 2)
-		error("No of argument is not enough");
-	i = 1;
-	while (av[i])
-	{
-		if (check_valid_no(av[i]) == -1)
-		{
-			error("Invalid argument");
-		}
-		i++;
-	}
-}
-
-static	int	check_valid_no(char *str)
+void	initial(t_stack *a, int *out, int size)
 {
 	int	i;
 
 	i = 0;
-	if (str[i] == '-' || str[i] == '+')
+	a->arr = (int *)malloc(size * sizeof(int));
+	if (!a->arr)
 	{
-		if (!str[1])
+		free(out);
+		error("Malloc error in initial");
+	}
+	while (i < size)
+	{
+		a->arr[i] = out[i];
+		i++;
+	}
+	a->size = size;
+	free(out);
+	if (sort_confirm(a) == 1)
+	{
+		ft_printf("Already sorted\n");
+		exit (EXIT_SUCCESS);
+	}
+}
+
+int	sort_confirm(t_stack *a)
+{
+	int	i;
+
+	i = 0;
+	while (i < a->size - 1)
+	{
+		if (a->arr[i] > a->arr[i + 1])
 			return (-1);
 		i++;
 	}
-	while (str[i])
-	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
-		{
-			return (-1);
-		}
-		i++;
-	}
-	return (0);
+	return (1);
 }

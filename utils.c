@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/01 16:34:03 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/01 16:31:54 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	ft_print_stack(t_stack a)
 {
-	int		*out;
-	t_stack	a;
+	int	i;
 
-	parsing(ac, av);
-	out = read_argument(ac, av);
-	ft_bzero(&a, sizeof(a));
-	initial(&a, out, ac - 1);
-	ft_print_stack(a);
-	free(a.arr);
-	return (0);
+	i = 0;
+	while (i < a.size)
+	{
+		ft_printf("Value of pos %d in stack is: %d\n", i, a.arr[i]);
+		i++;
+	}
 }
