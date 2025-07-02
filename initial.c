@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:35:25 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/02 13:04:11 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/02 19:03:48 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ void	initial_a(t_stack *a, int *out, int size)
 
 void	initial_b(t_stack *a, t_stack *b, int size)
 {
-	int	i;
-
-	i = 0;
 	b->arr = (int *)malloc(size * sizeof(int));
 	if (!b->arr)
 	{

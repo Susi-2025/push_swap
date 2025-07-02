@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/02 18:56:03 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/02 19:03:39 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int	main(int ac, char **av)
 	ft_printf("Start sort\n");
 	sort_algorithm(&sta, &stb);
 	free_stack(&sta);
-	free_stack(&b);
+	free_stack(&stb);
 	return (0);
 }
