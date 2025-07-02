@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/01 19:08:24 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/02 13:00:12 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_print_stack(t_stack a)
 	int	i;
 
 	i = 0;
-	while (a.arr[i])
+	while (i< a.size)
 	{
 		ft_printf("Value of pos %d in stack is: %d\n", i, a.arr[i]);
 		i++;

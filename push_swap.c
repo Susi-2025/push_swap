@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/01 20:40:46 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/02 18:56:03 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,22 @@
 int	main(int ac, char **av)
 {
 	int		*out;
-	t_stack	a;
+	t_stack	sta;
+	t_stack stb;
 
 	parsing(ac, av);
 	out = read_argument(ac, av);
-	ft_bzero(&a, sizeof(a));
-	initial(&a, out, (ac - 1));
-	ft_print_stack(a);
-	sort_algorithm(&a);
-	free(a.arr);
+	//
+	ft_bzero(&sta, sizeof(t_stack));
+	initial_a(&sta, out, (ac - 1));
+	ft_print_stack(sta);
+	//
+	ft_bzero(&stb, sizeof(t_stack));
+	initial_b(&sta, &stb, (ac - 1));
+	//
+	ft_printf("Start sort\n");
+	sort_algorithm(&sta, &stb);
+	free_stack(&sta);
+	free_stack(&b);
 	return (0);
 }

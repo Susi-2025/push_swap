@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 11:59:08 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/01 16:14:35 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/02 12:33:12 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	*read_argument(int ac, char **av)
 
 	out = (int *)malloc((ac - 1) * sizeof(int));
 	if (!out)
-		error("Allocation fail in read_argu");
+		error(EXIT_FAILURE);
 	i = 1;
 	while (av[i])
 	{
@@ -31,7 +31,7 @@ int	*read_argument(int ac, char **av)
 	if (check_duplicate(out, (ac - 1)) == -1)
 	{
 		free(out);
-		error("Duplicate value in string");
+		error(EXIT_FAILURE);
 	}
 	return (out);
 }
