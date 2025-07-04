@@ -36,6 +36,8 @@ void	initial_a(t_stack *a, int *out, int size)
 		ft_printf("Already sorted\n");
 		exit (EXIT_SUCCESS);
 	}
+	// we need to malloc for indices array
+	indices(a, out);
 }
 
 void	initial_b(t_stack *a, t_stack *b, int size)

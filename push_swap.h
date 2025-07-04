@@ -22,8 +22,8 @@ typedef struct s_stack
 {
 	int	*arr;
 //	int	top;
+	int	*indices;
 	int	size;
-	int	indices;
 	int	cost_a;
 	int	cost_b;
 	int	total_cost;
