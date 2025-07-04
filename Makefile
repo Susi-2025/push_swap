@@ -28,6 +28,8 @@ SRC =	push_swap.c \
 		read_argument.c \
 		initial.c \
 		sort_algorithm.c \
+		sort_tiny.c \
+		sort_big.c \
 		error_handler.c \
 		utils.c \
 		sort_command.c

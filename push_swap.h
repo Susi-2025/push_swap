@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+//# include <climits>;
 
 # include "./Library/library.h"
 
@@ -30,17 +31,22 @@ typedef struct s_stack
 }	t_stack;
 
 void	error(int stt);
-void	error_stack(t_stack *a, int stt);
-void	free_stack(t_stack *a);
+void	error_stack(t_stack *st, int stt);
+void	free_stack(t_stack *st);
 
 void	parsing(int ac, char **av);
 int		*read_argument(int ac, char **av);
-void	initial_a(t_stack *a, int *out, int size);
-void	initial_b(t_stack *a, t_stack *b, int size);
+void	initial_a(t_stack *st, int *out, int size);
+void	initial_b(t_stack *st, t_stack *b, int size);
 void	sort_algorithm(t_stack *a, t_stack *b);
+void	three_sort(t_stack *st);
+int		find_min_value(t_stack *st);
+int		find_max_value(t_stack *st);
+void	four_sort(t_stack *sta, t_stack *stb);
+void	five_sort(t_stack *sta, t_stack *stb);
 
 void	ft_print_stack(t_stack a);
-int		sort_confirm(t_stack a);
+//int		sort_confirm(t_stack st);
 void	swap(t_stack *st, char c);
 void	rotate(t_stack *st, char c);
 void	rev_rotate(t_stack *st, char c);

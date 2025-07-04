@@ -18,15 +18,16 @@ void	error(int stt)
 	exit (stt);
 }
 
-void	free_stack(t_stack *a)
+void	free_stack(t_stack *st)
 {
-	if (a->arr)
-		free(a->arr);
-//	free(a);
+	if (st->arr)
+		free(st->arr);
+	if (st->indices)
+		free(st->indices);
 }
 
-void	error_stack(t_stack *a, int stt)
+void	error_stack(t_stack *st, int stt)
 {
-	free_stack(a);
+	free_stack(st);
 	error(stt);
 }

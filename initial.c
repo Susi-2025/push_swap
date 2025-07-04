@@ -11,54 +11,60 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	initial_a(t_stack *a, int *out, int size)
+void	initial_a(t_stack *st, int *out, int size)
 {
 	int	i;
 
 	i = 0;
-	a->arr = (int *)malloc(size * sizeof(int));
-	if (!a->arr)
-	{
-		free(out);
-		error(EXIT_FAILURE);
-	}
+	assign_mem(&(st->arr), out, NULL, size);
+	st->size = size;
 	while (i < size)
 	{
-		a->arr[i] = out[i];
+		st->arr[i] = out[i];
 		i++;
 	}
-	a->size = size;
-	free(out);
-	if (sort_confirm(*a) == 1)
+	if (sort_confirm(*st) == 1)
 	{
-		free_stack(a);
+		free(st->arr);
+		free(out);
 		ft_printf("Already sorted\n");
 		exit (EXIT_SUCCESS);
 	}
-	// we need to malloc for indices array
-	indices(a, out);
+	assign_mem(&(st->indices), st->arr, out, size);
+	indices(st, out);
+	free(out);
 }
 
-void	initial_b(t_stack *a, t_stack *b, int size)
+void	initial_b(t_stack *sta, t_stack *stb, int size)
 {
-	b->arr = (int *)malloc(size * sizeof(int));
-	if (!b->arr)
+	stb->arr = (int *)malloc(size * sizeof(int));
+	if (!stb->arr)
 	{
-		free_stack(a);
+		free_stack(sta);
 		error(EXIT_FAILURE);
 	}
-	b->size = 0;
+	stb->size = 0;
 }
 
-int	sort_confirm(t_stack a)
+static void	assign_mem(int **arr, int *in1, int *in2, int size)
+{
+	*arr = (int *)malloc(size * sizeof(int));
+	if (!*arr)
+	{
+		free(in1);
+		free(in2);
+		error(EXIT_FAILURE);
+	}	
+}
+
+static int	sort_confirm(t_stack st)
 {
 	int	i;
 
 	i = 0;
-	while (i < a.size - 1)
+	while (i < st.size - 1)
 	{
-		if (a.arr[i] > a.arr[i + 1])
+		if (st.arr[i] > st.arr[i + 1])
 			return (-1);
 		i++;
 	}
