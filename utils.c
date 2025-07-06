@@ -66,5 +66,4 @@ void	sort_arr(int **arr, int size)
 		}
 		i++;
 	}
-	return (arr);
 }

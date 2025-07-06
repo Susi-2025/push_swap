@@ -1,27 +1,19 @@
-#include <climits>;
-#include "push_swap.h";
+#include "push_swap.h"
 
 void	three_sort(t_stack *st)
 {
-	// int	first;
-	// int	second;
-	// int	last;
-
-	// first = st->arr[0];
-	// second = st->arr[1];
-	// last = st->arr[2];
 	if (st->arr[0] > st->arr[1] && st->arr[1] > st->arr[2])// 8 5 2
 	{
 		swap(st, 'a');
 		rev_rotate(st, 'a');
 	}
-	else if (st->arr[0] > st->arr[2] && st->arr[1] < st->arr[2]) // 8 2 5
+	else if (st->arr[0] > st->arr[2] && st->arr[2] > st->arr[1]) // 8 2 5
 		rotate(st, 'a');
 	else if (st->arr[0] > st->arr[1] && st->arr[2] > st->arr[0]) // 5 2 8
 		swap(st, 'a');
 	else if (st->arr[0] < st->arr[1] && st->arr[0] > st->arr[2])// 5 8 2
 		rev_rotate(st, 'a');
-	else if (st->arr[0] < st->arr[2] && st->arr[2] < st->arr[1])// 2 8 5
+	else if (st->arr[1] > st->arr[2] && st->arr[2] > st->arr[0])// 2 8 5
 	{
 		rev_rotate(st, 'a');
 		swap(st, 'a');
@@ -33,7 +25,7 @@ int	find_min_value(t_stack *st)
 	int	min;
 	int	i;
 
-	min = LONG_MAX;
+	min = INT_MAX;
 	i = 0;
 	while (i < st->size)
 	{
@@ -49,7 +41,7 @@ int	find_max_value(t_stack *st)
 	int	max;
 	int	i;
 
-	max = LONG_MIN;
+	max = INT_MIN;
 	i = 0;
 	while (i < st->size)
 	{

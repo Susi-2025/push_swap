@@ -11,6 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	assign_mem(int **arr, int *in1, int *in2, int size);
+static int	sort_confirm(t_stack st);
+
 void	initial_a(t_stack *st, int *out, int size)
 {
 	int	i;
