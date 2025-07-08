@@ -17,7 +17,7 @@ void	sort_big(t_stack *sta,t_stack *stb)
 		j = 0;
 		while (j < size)
 			{
-				if (((sta->indices[0] >> i) && 1) == 0)
+				if (((sta->indices[0] >> i) & 1) == 0)
 					push(sta, stb, 'a');
 				else
 					rotate(sta, 'a');

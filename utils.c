@@ -37,7 +37,10 @@ void	indices(t_stack *st, int *arr)
 		while (j < st->size)
 		{
 			if (st->arr[i] == arr[j])
+			{
 				st->indices[i] = j;
+				break;
+			}
 			j++;
 		}
 		i++;

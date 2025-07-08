@@ -22,10 +22,11 @@ int	*read_argument(int ac, char **av)
 	out = (int *)malloc((ac - 1) * sizeof(int));
 	if (!out)
 		error(EXIT_FAILURE);
-	i = 1;
-	while (av[i])
+    i = 1;
+	while (i < ac)
 	{
 		out[i - 1] = ft_atoi(av[i]);
+   //     ft_printf("Value of string: %d\n", out[i - 1]);
 		i++;
 	}
 	if (check_duplicate(out, (ac - 1)) == -1)
@@ -33,6 +34,12 @@ int	*read_argument(int ac, char **av)
 		free(out);
 		error(EXIT_FAILURE);
 	}
+//    i = 1;
+//	while (av[i])
+//	{
+//      ft_printf("Value of string before assign: %d\n", out[i - 1]);
+//		i++;
+//	}
 	return (out);
 }
 
