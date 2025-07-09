@@ -23,6 +23,10 @@ void	sort_big(t_stack *sta,t_stack *stb)
 					rotate(sta, 'a');
 				j++;
 			}
+		// ft_printf("Stack A: \n");
+		// ft_print_stack(*sta);
+		// ft_printf("Stack B: \n");
+		// ft_print_stack(*stb);
 		while (stb->size > 0)
 			push(stb, sta, 'b');
 		i++;

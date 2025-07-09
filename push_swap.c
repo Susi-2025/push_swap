@@ -20,22 +20,16 @@ int	main(int ac, char **av)
 
 	parsing(ac, av);
 	out = read_argument(ac, av);
-//	int i = 0;
-//    while (i < ac - 1)
-//	{
-//	 	ft_printf("Value of array at pos %d is %d\n", i, out[i]);
-//	 	i++;
-//  }
 	ft_bzero(&sta, sizeof(t_stack));
 	initial_a(&sta, out, (ac - 1));
-	ft_print_stack(sta);
+	//ft_print_stack(sta);
 	//
 	ft_bzero(&stb, sizeof(t_stack));
 	initial_b(&sta, &stb, (ac - 1));
 	//
-	ft_printf("Start sort\n");
+	//ft_printf("Start sort\n");
 	sort_algorithm(&sta, &stb);
-	//ft_printf("Value of sta\n");
+	//ft_printf("Value of sta after sorting\n");
 	//ft_print_stack(sta);	
 	free_stack(&sta);
 	free_stack(&stb);

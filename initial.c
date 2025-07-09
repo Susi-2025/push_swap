@@ -42,7 +42,8 @@ void	initial_a(t_stack *st, int *out, int size)
 void	initial_b(t_stack *sta, t_stack *stb, int size)
 {
 	stb->arr = (int *)malloc(size * sizeof(int));
-	if (!stb->arr)
+	stb->indices = (int *)malloc(size *sizeof(int));
+	if (!stb->arr || !stb->indices)
 	{
 		free_stack(sta);
 		error(EXIT_FAILURE);

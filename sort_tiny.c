@@ -2,6 +2,8 @@
 
 void	three_sort(t_stack *st)
 {
+	if (st->size != 3)
+		return;
 	if (st->arr[0] > st->arr[1] && st->arr[1] > st->arr[2])// 8 5 2
 	{
 		swap(st, 'a');

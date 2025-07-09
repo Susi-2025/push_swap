@@ -15,12 +15,16 @@
 void	swap(t_stack *st, char c)
 {
 	int temp;
+	int	temp_ind;
 	
 	if (st->size < 2)
 		return ;
 	temp = st->arr[0];
+	temp_ind = st->indices[0];
 	st->arr[0] = st->arr[1];
+	st->indices[0] = st->indices[1];
 	st->arr[1] = temp;
+	st->indices[1] = temp_ind;
 	if (c == 'a')
 		write(1, "sa\n", 3);
 	else if (c == 'b')
@@ -31,19 +35,21 @@ void	rotate(t_stack *st, char c)
 {
 	int	i;
 	int	temp;
+	int	temp_ind;
 	
 	if (st->size < 2)
 		return ;
 	temp = st->arr[0];
-	ft_printf("Store is: %d\n", temp);
+	temp_ind = st->indices[0];
 	i = 0;
 	while (i < st->size - 1)
 	{
 		st->arr[i] = st->arr[i + 1];
+		st->indices[i] = st->indices[i + 1];
 		i++;
 	}
-	ft_printf("Pos is:%d\n", i);
-	st->arr[i] = temp;
+	st->arr[st->size - 1] = temp;
+	st->indices[st->size - 1] = temp_ind;
 	if (c == 'a')
 		write(1, "ra\n", 3);
 	else if (c == 'b')
@@ -54,15 +60,19 @@ void	rev_rotate(t_stack *st, char c)
 {
 	int	i;
 	int	temp;
+	int	temp_ind;
 	
 	i = st->size - 1;
 	temp = st->arr[st->size - 1];
+	temp_ind = st->indices[st->size - 1];
 	while (i > 0)
 	{
 		st->arr[i] = st->arr[i - 1];
+		st->indices[i] = st->indices[i - 1];
 		i--;
 	}
-	st->arr[i] = temp;
+	st->arr[0] = temp;
+	st->indices[0] = temp_ind;
 	if (c == 'a')
 		write(1, "rra\n", 4);
 	else if (c == 'b')
@@ -79,14 +89,17 @@ void	push(t_stack *from, t_stack *to, char c)
 		while (i > 0)
 		{
 			to->arr[i] = to->arr[i - 1];
+			to->indices[i] = to->indices[i - 1];
 			i--;
 		}
 	}
 	to->arr[0] = from->arr[0];
+	to->indices[0] = from->indices[0];
 	i = 0;
 	while (i < from->size)
 	{
 		from->arr[i] = from->arr[i + 1];
+		from->indices[i] = from->indices[i + 1];
 		i++;
 	}
 	from->size--;
