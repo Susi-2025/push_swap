@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	int		*out;
 	t_stack	sta;
-	t_stack stb;
+	t_stack	stb;
 
 	parsing(ac, av);
 	out = read_argument(ac, av);

@@ -3,19 +3,19 @@
 void	three_sort(t_stack *st)
 {
 	if (st->size != 3)
-		return;
-	if (st->arr[0] > st->arr[1] && st->arr[1] > st->arr[2])// 8 5 2
+		return ;
+	if (st->arr[0] > st->arr[1] && st->arr[1] > st->arr[2])
 	{
 		swap(st, 'a');
 		rev_rotate(st, 'a');
 	}
-	else if (st->arr[0] > st->arr[2] && st->arr[2] > st->arr[1]) // 8 2 5
+	else if (st->arr[0] > st->arr[2] && st->arr[2] > st->arr[1])
 		rotate(st, 'a');
-	else if (st->arr[0] > st->arr[1] && st->arr[2] > st->arr[0]) // 5 2 8
+	else if (st->arr[0] > st->arr[1] && st->arr[2] > st->arr[0])
 		swap(st, 'a');
-	else if (st->arr[0] < st->arr[1] && st->arr[0] > st->arr[2])// 5 8 2
+	else if (st->arr[0] < st->arr[1] && st->arr[0] > st->arr[2])
 		rev_rotate(st, 'a');
-	else if (st->arr[1] > st->arr[2] && st->arr[2] > st->arr[0])// 2 8 5
+	else if (st->arr[1] > st->arr[2] && st->arr[2] > st->arr[0])
 	{
 		rev_rotate(st, 'a');
 		swap(st, 'a');
@@ -73,5 +73,5 @@ void	five_sort(t_stack *sta, t_stack *stb)
 	push(sta, stb, 'a');
 	three_sort(sta);
 	push(stb, sta, 'b');
-	push(stb, sta, 'b');	
+	push(stb, sta, 'b');
 }

@@ -17,7 +17,7 @@ void	ft_print_stack(t_stack a)
 	int	i;
 
 	i = 0;
-	while (i< a.size)
+	while (i < a.size)
 	{
 		ft_printf("Value of pos %d in stack is: %d\n", i, a.arr[i]);
 		i++;
@@ -27,7 +27,7 @@ void	ft_print_stack(t_stack a)
 void	indices(t_stack *st, int *arr)
 {
 	int	i;
-	int j;
+	int	j;
 
 	sort_arr(&arr, st->size);
 	i = 0;
@@ -39,7 +39,7 @@ void	indices(t_stack *st, int *arr)
 			if (st->arr[i] == arr[j])
 			{
 				st->indices[i] = j;
-				break;
+				break ;
 			}
 			j++;
 		}

@@ -42,7 +42,7 @@ void	initial_a(t_stack *st, int *out, int size)
 void	initial_b(t_stack *sta, t_stack *stb, int size)
 {
 	stb->arr = (int *)malloc(size * sizeof(int));
-	stb->indices = (int *)malloc(size *sizeof(int));
+	stb->indices = (int *)malloc(size * sizeof(int));
 	if (!stb->arr || !stb->indices)
 	{
 		free_stack(sta);
@@ -59,7 +59,7 @@ static void	assign_mem(int **arr, int *in1, int *in2, int size)
 		free(in1);
 		free(in2);
 		error(EXIT_FAILURE);
-	}	
+	}
 }
 
 static int	sort_confirm(t_stack st)

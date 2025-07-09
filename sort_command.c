@@ -14,9 +14,9 @@
 
 void	swap(t_stack *st, char c)
 {
-	int temp;
+	int	temp;
 	int	temp_ind;
-	
+
 	if (st->size < 2)
 		return ;
 	temp = st->arr[0];
@@ -36,7 +36,7 @@ void	rotate(t_stack *st, char c)
 	int	i;
 	int	temp;
 	int	temp_ind;
-	
+
 	if (st->size < 2)
 		return ;
 	temp = st->arr[0];
@@ -61,7 +61,7 @@ void	rev_rotate(t_stack *st, char c)
 	int	i;
 	int	temp;
 	int	temp_ind;
-	
+
 	i = st->size - 1;
 	temp = st->arr[st->size - 1];
 	temp_ind = st->indices[st->size - 1];

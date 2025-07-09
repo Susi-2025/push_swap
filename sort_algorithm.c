@@ -14,8 +14,8 @@
 
 void	sort_algorithm(t_stack *sta, t_stack *stb)
 {
-// test basic function
-
+	// test basic function
+	/*
 	// ft_printf("Start to rotate\n");
 	// rotate(sta, 'a');
 	// ft_print_stack(*sta);
@@ -31,17 +31,17 @@ void	sort_algorithm(t_stack *sta, t_stack *stb)
 	// ft_print_stack(*sta);
 	// ft_printf("Print new stack b:\n");
 	// ft_print_stack(*stb);
-
+	// */
 	if (sta->size == 2)
 		two_sort(sta);
 	else if (sta->size == 3)
-	 	three_sort(sta);
+		three_sort(sta);
 	else if (sta->size == 4)
-	 	four_sort(sta, stb);
+		four_sort(sta, stb);
 	else if (sta->size == 5)
-	 	five_sort(sta, stb);
+		five_sort(sta, stb);
 	else
-	 	sort_big(sta, stb);
+		sort_big(sta, stb);
 }
 
 void	two_sort(t_stack *st)
