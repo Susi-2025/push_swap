@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:28:19 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/22 20:36:28 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/22 22:18:48 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static	void	push(t_stack *from, t_stack *to)
 	shift_stack_down(to);
 	to->arr[0] = from->arr[0];
 	to->indices[0] = from->indices[0];
+	to->size++;
 	shift_stack_up(from);
 	from->size--;
-	to->size++;
 }

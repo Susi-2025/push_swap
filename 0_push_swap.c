@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/22 20:34:51 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/22 23:30:21 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,7 @@ int	main(int ac, char **av)
 		error(EXIT_FAILURE);
 	out = parsing(ac, av);
 	initial(&sta, &stb, out, ac - 1);
-	// ft_print_stack(sta);
-	// ft_print_stack(stb);
 	sort_algorithm(&sta, &stb);
-	//ft_print_stack(sta);
-	//ft_print_stack(stb);
 	free_all_stack(&sta, &stb);
 	return (0);
 }

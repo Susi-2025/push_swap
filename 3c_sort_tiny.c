@@ -6,46 +6,60 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 17:19:20 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/22 20:29:03 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/22 23:32:10 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_min_value(t_stack *st)
+static	int	find_min_pos(t_stack *st);
+
+void	four_five_sort(t_stack *sta, t_stack *stb)
+{
+	int	i;
+	int	min_pos;
+
+	while (sta->size > 3)
+	{
+		min_pos = find_min_pos(sta);
+		if (min_pos == 0)
+			push_b(sta, stb);
+		else if (min_pos <= sta->size / 2)
+		{
+			while (min_pos--)
+				rotate(sta, 'a');
+			push_b(sta, stb);
+		}
+		else
+		{
+			i = sta->size - min_pos;
+			while (i--)
+				rev_rotate(sta, 'a');
+			push_b(sta, stb);
+		}
+	}
+	three_sort(sta);
+	while (stb->size)
+		push_a(stb, sta);
+}
+
+static	int	find_min_pos(t_stack *st)
 {
 	int	min;
 	int	i;
+	int	min_pos;
 
-	min = INT_MAX;
-	i = 0;
+	min = st->arr[0];
+	min_pos = 0;
+	i = 1;
 	while (i < st->size)
 	{
 		if (min > st->arr[i])
+		{
 			min = st->arr[i];
+			min_pos = i;
+		}
 		i++;
 	}
-	return (min);
-}
-
-void	four_sort(t_stack *sta, t_stack *stb)
-{
-	while (sta->arr[0] != find_min_value(sta))
-		rotate(sta, 'a');
-	push_b(sta, stb);
-	three_sort(sta);
-	push_b(sta, stb);
-}
-
-void	five_sort(t_stack *sta, t_stack *stb)
-{
-	while (sta->arr[0] != find_min_value(sta))
-		rotate(sta, 'a');
-	push_b(sta, stb);
-	while (sta->arr[0] != find_min_value(sta))
-		rotate(sta, 'a');
-	push_b(sta, stb);
-	three_sort(sta);
-	push_a(stb, sta);
-	push_a(stb, sta);
+	return (min_pos);
 }
