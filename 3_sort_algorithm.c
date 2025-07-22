@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_algorithm.c                                   :+:      :+:    :+:   */
+/*   3_sort_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:26:48 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/02 18:55:13 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/22 19:55:20 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,13 @@
 
 void	sort_algorithm(t_stack *sta, t_stack *stb)
 {
-	// test basic function
-	/*
-	// ft_printf("Start to rotate\n");
-	// rotate(sta, 'a');
-	// ft_print_stack(*sta);
-	// ft_printf("Start to swap\n");
-	// swap(sta, 'a');
-	// ft_print_stack(*sta);
-	// ft_printf("Start to rev_rotate\n");
 	// rev_rotate(sta, 'a');
-	// ft_print_stack(*sta);
-	// ft_printf("Start to push\n");
-	// push(sta, stb, 'a');
-	// ft_printf("Print new stack a:\n");
-	// ft_print_stack(*sta);
-	// ft_printf("Print new stack b:\n");
-	// ft_print_stack(*stb);
-	// */
+	// swap(sta, 'a');
+	// rotate(sta, 'a');
+	//push_a(sta, stb);
+	//ft_print_stack(*sta);
+	//ft_print_stack(*stb);
+	//rotate(sta, 'a');
 	if (sta->size == 2)
 		two_sort(sta);
 	else if (sta->size == 3)
@@ -48,4 +37,26 @@ void	two_sort(t_stack *st)
 {
 	if (st->arr[0] > st->arr[1])
 		swap(st, 'a');
+}
+
+void	three_sort(t_stack *st)
+{
+	if (st->size != 3)
+		return ;
+	if (st->arr[0] > st->arr[1] && st->arr[1] > st->arr[2])
+	{
+		swap(st, 'a');
+		rev_rotate(st, 'a');
+	}
+	else if (st->arr[0] > st->arr[2] && st->arr[2] > st->arr[1])
+		rotate(st, 'a');
+	else if (st->arr[0] > st->arr[1] && st->arr[2] > st->arr[0])
+		swap(st, 'a');
+	else if (st->arr[0] < st->arr[1] && st->arr[0] > st->arr[2])
+		rev_rotate(st, 'a');
+	else if (st->arr[1] > st->arr[2] && st->arr[2] > st->arr[0])
+	{
+		rev_rotate(st, 'a');
+		swap(st, 'a');
+	}
 }

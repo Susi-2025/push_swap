@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handler.c                                    :+:      :+:    :+:   */
+/*   9b_error_handler.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:52:12 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/02 12:57:50 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:15:11 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 void	error(int stt)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit (stt);
 }
 
-void	free_stack(t_stack *st)
+void	error_mem(int *arr, int stt)
 {
-	if (st->arr)
-		free(st->arr);
-	if (st->indices)
-		free(st->indices);
+	free(arr);
+	error(stt);
 }
 
 void	error_stack(t_stack *st, int stt)

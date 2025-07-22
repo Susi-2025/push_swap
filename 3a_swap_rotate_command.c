@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_command.c                                     :+:      :+:    :+:   */
+/*   3a_swap_rotate_command.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 18:28:19 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/02 18:54:12 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/22 20:36:45 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,35 +77,4 @@ void	rev_rotate(t_stack *st, char c)
 		write(1, "rra\n", 4);
 	else if (c == 'b')
 		write(1, "rrb\n", 4);
-}
-
-void	push(t_stack *from, t_stack *to, char c)
-{
-	int	i;
-
-	if (to->size > 0)
-	{
-		i = to->size;
-		while (i > 0)
-		{
-			to->arr[i] = to->arr[i - 1];
-			to->indices[i] = to->indices[i - 1];
-			i--;
-		}
-	}
-	to->arr[0] = from->arr[0];
-	to->indices[0] = from->indices[0];
-	i = 0;
-	while (i < from->size)
-	{
-		from->arr[i] = from->arr[i + 1];
-		from->indices[i] = from->indices[i + 1];
-		i++;
-	}
-	from->size--;
-	to->size++;
-	if (c == 'a')
-		write(1, "pa\n", 4);
-	else if (c == 'b')
-		write(1, "pb\n", 4);
 }

@@ -6,11 +6,11 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 19:12:08 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/01 12:20:15 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:18:42 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	LIBRARY_H
+#ifndef LIBRARY_H
 # define LIBRARY_H
 
 # include <unistd.h>

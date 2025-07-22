@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   0_push_swap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 18:57:18 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/02 19:03:39 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/22 20:34:51 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,15 @@ int	main(int ac, char **av)
 	t_stack	sta;
 	t_stack	stb;
 
-	parsing(ac, av);
-	out = read_argument(ac, av);
-	ft_bzero(&sta, sizeof(t_stack));
-	initial_a(&sta, out, (ac - 1));
-	//ft_print_stack(sta);
-	//
-	ft_bzero(&stb, sizeof(t_stack));
-	initial_b(&sta, &stb, (ac - 1));
-	//
-	//ft_printf("Start sort\n");
+	if (ac <= 2)
+		error(EXIT_FAILURE);
+	out = parsing(ac, av);
+	initial(&sta, &stb, out, ac - 1);
+	// ft_print_stack(sta);
+	// ft_print_stack(stb);
 	sort_algorithm(&sta, &stb);
-	//ft_printf("Value of sta after sorting\n");
-	//ft_print_stack(sta);	
-	free_stack(&sta);
-	free_stack(&stb);
+	//ft_print_stack(sta);
+	//ft_print_stack(stb);
+	free_all_stack(&sta, &stb);
 	return (0);
 }

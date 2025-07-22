@@ -6,7 +6,7 @@
 #    By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/30 16:05:03 by vinguyen          #+#    #+#              #
-#    Updated: 2025/07/02 18:24:01 by vinguyen         ###   ########.fr        #
+#    Updated: 2025/07/22 18:58:55 by vinguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,17 +23,18 @@ LIB_OBJ = $(LIB_SRC:.c=.o)
 
 #Project file
 
-SRC =	push_swap.c \
-		parsing.c \
-		read_argument.c \
-		initial.c \
-		sort_algorithm.c \
-		sort_tiny.c \
-		sort_big.c \
-		error_handler.c \
-		utils.c \
-		sort_command.c
-
+SRC =	0_push_swap.c \
+		1_parsing.c \
+		2_initial.c \
+		3_sort_algorithm.c \
+		3a_swap_rotate_command.c \
+		3b_push_command.c \
+		3c_sort_tiny.c \
+		3d_sort_big.c \
+		8_utils.c \
+		9a_free_handler.c \
+		9b_error_handler.c \
+		
 OBJ = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
 
 #Compiler
