@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 15:56:58 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/29 16:43:21 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/05/20 16:23:21 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/07/23 15:02:46 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "library.h"
 
-int	ft_putptr(void *ptr, char *base, int i)
+#include "libft.h"
+
+int	ft_putnbr_base(long long number, char *base, int i)
 {
 	int					res;
-	unsigned long long	add;
+	unsigned long long	new_no;
 
 	res = 0;
-	add = (unsigned long long)ptr;
-	if (add == 0)
-		return (ft_putstr("(nil)"));
-	res += ft_putstr("0x");
-	res += ft_putnbr_base_unsigned(add, base, i);
+	if (number < 0)
+	{
+		new_no = (unsigned long long)(-number);
+		res += ft_putchar('-');
+	}
+	else
+		new_no = (unsigned long long)(number);
+	if (new_no / i > 0)
+		res += ft_putnbr_base(new_no / i, base, i);
+	res += ft_putchar(base[new_no % i]);
 	return (res);
 }

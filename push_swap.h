@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:27:14 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/22 21:11:12 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/23 15:00:54 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <limits.h>
 # include <stdio.h>
 
-# include "./Library/library.h"
+# include "./libft/libft.h"
 
 typedef struct s_stack
 {
@@ -42,11 +42,8 @@ void	sort_algorithm(t_stack *a, t_stack *b);
 
 void	two_sort(t_stack *st);
 void	three_sort(t_stack *st);
-//void	four_sort(t_stack *sta, t_stack *stb);
-//void	five_sort(t_stack *sta, t_stack *stb);
 void	four_five_sort(t_stack *sta, t_stack *stb);
 void	sort_big(t_stack *sta, t_stack *stb);
-//int		find_min_value(t_stack *st);
 
 void	ft_print_stack(t_stack a);
 void	sort_arr(int **arr, int size);

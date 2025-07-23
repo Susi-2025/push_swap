@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 10:11:02 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/28 11:52:22 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/05/20 15:49:44 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/07/23 15:02:41 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "library.h"
 
-size_t	ft_strlen(const char *s)
+#include "libft.h"
+
+int	ft_putchar(int c)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (write(1, &c, 1) == -1)
+		return (-1);
+	return (1);
 }

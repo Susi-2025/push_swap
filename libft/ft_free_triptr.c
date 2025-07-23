@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_free_triptr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 15:50:25 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/29 16:43:34 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/06/27 15:36:23 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/07/23 15:02:33 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "library.h"
 
-int	ft_putstr(char *str)
+#include "libft.h"
+
+void	ft_free_triptr(char ***str)
 {
 	int	i;
 
-	if (!str)
-		str = "(null)";
 	i = 0;
-	while (str[i])
+	if (*str)
 	{
-		if (ft_putchar(str[i]) == -1)
-			return (-1);
-		i++;
+		while ((*str)[i] != NULL)
+		{
+			free((*str)[i]);
+			i++;
+		}
+		free(*str);
+		*str = NULL;
 	}
-	return (i);
 }

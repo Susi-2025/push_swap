@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 15:07:20 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/28 11:51:43 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/05/20 15:56:58 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/07/23 15:02:53 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "library.h"
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+int	ft_putptr(void *ptr, char *base, int i)
 {
-	const char		*p;
-	unsigned char	ch;
+	int					res;
+	unsigned long long	add;
 
-	p = s;
-	ch = (unsigned char)c ;
-	while (*p)
-	{
-		if (*p == ch)
-			return ((char *)p);
-		p++;
-	}
-	if (ch == '\0')
-		return ((char *)p);
-	return (NULL);
+	res = 0;
+	add = (unsigned long long)ptr;
+	if (add == 0)
+		return (ft_putstr("(nil)"));
+	res += ft_putstr("0x");
+	res += ft_putnbr_base_unsigned(add, base, i);
+	return (res);
 }

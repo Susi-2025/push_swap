@@ -6,11 +6,11 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:47:19 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 19:02:07 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/23 15:02:20 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "library.h"
+#include "libft.h"
 
 static int	sign_check(char **str1)
 {

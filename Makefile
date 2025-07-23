@@ -6,20 +6,20 @@
 #    By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/30 16:05:03 by vinguyen          #+#    #+#              #
-#    Updated: 2025/07/22 18:58:55 by vinguyen         ###   ########.fr        #
+#    Updated: 2025/07/23 14:59:41 by vinguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 SRC_DIR = .
-LIB_DIR = Library
 OBJ_DIR = Object
 
 #Library files
-LIB_NAME = $(LIB_DIR)/library.a
-LIB_SRC = $(wildcard $(LIB_DIR)/*.c)
-LIB_OBJ = $(LIB_SRC:.c=.o)
+LIBFT_DIR = libft
+LIBFT_NAME = $(LIBFT_DIR)/libft.a
+LIBFT_SRC = $(wildcard $(LIBFT_DIR)/*.c)
+LIBFT_OBJ = $(LIBFT_SRC:.c=.o)
 
 #Project file
 
@@ -37,23 +37,20 @@ SRC =	0_push_swap.c \
 		
 OBJ = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
 
-#Compiler
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
-#Rules
-all: $(OBJ_DIR) $(LIB_NAME) $(NAME)
+all: $(OBJ_DIR) $(LIBFT_NAME) $(NAME)
 
-#Object directory create
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 #Build library
-$(LIB_NAME): $(LIB_OBJ)
+$(LIBFT_NAME): $(LIBFT_OBJ)
 	ar rcs $@ $^
 
 #Compile library object files
-$(LIB_DIR)/%.o: $(LIB_DIR)/%.c
+$(LIBFT_DIR)/%.o: $(LIBFT_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 #Compile project obj files into Object folder
@@ -61,15 +58,17 @@ $(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 #Build final executable
-$(NAME): $(OBJ) $(LIB_NAME)
-	$(CC) $(CFLAGS) $(OBJ) $(LIB_NAME) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT_NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT_NAME) -o $(NAME)
 
 #cleaning
 clean:
 	rm -rf $(OBJ_DIR)
-	rm -f $(LIB_OBJ)
+	rm -f $(LIBFT_OBJ)
 
 fclean: clean
-	rm -f $(NAME) $(LIB_NAME)
+	rm -f $(NAME) $(LIBFT_NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

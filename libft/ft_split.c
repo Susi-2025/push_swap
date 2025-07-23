@@ -6,10 +6,11 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 09:47:43 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/30 20:47:23 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/23 15:03:03 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "library.h"
+
+#include "libft.h"
 
 static unsigned int	ft_count(const char *s, char c)
 {

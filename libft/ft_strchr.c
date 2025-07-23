@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 15:49:44 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/06/29 16:42:34 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/04/16 15:07:20 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/07/23 15:03:07 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "library.h"
 
-int	ft_putchar(int c)
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int c)
 {
-	if (write(1, &c, 1) == -1)
-		return (-1);
-	return (1);
+	const char		*p;
+	unsigned char	ch;
+
+	p = s;
+	ch = (unsigned char)c ;
+	while (*p)
+	{
+		if (*p == ch)
+			return ((char *)p);
+		p++;
+	}
+	if (ch == '\0')
+		return ((char *)p);
+	return (NULL);
 }
