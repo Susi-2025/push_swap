@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 16:27:14 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/23 15:00:54 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/23 15:55:05 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	three_sort(t_stack *st);
 void	four_five_sort(t_stack *sta, t_stack *stb);
 void	sort_big(t_stack *sta, t_stack *stb);
 
-void	ft_print_stack(t_stack a);
 void	sort_arr(int **arr, int size);
 void	swap(t_stack *st, char c);
 void	rotate(t_stack *st, char c);

@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 14:35:25 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/07/22 17:14:10 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/07/23 17:58:32 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ static	void	initial_a(t_stack *sta, int *out, int size)
 	sta->arr = malloc(sizeof(int) * size);
 	sta->indices = malloc(sizeof(int) * size);
 	if (!sta->arr || !sta->indices)
+	{
+		free_stack(sta);
 		error_mem(out, EXIT_FAILURE);
+	}
 	sta->size = size;
 	sta->capacity = size;
 	while (i < size)
@@ -53,7 +56,10 @@ static	void	initial_b(t_stack *sta, t_stack *stb, int size)
 	stb->arr = malloc(sizeof(int) * size);
 	stb->indices = malloc(sizeof(int) * size);
 	if (!stb->arr || !stb->indices)
-		error_stack(sta, EXIT_FAILURE);
+	{
+		free_all_stack(sta, stb);
+		error(EXIT_FAILURE);
+	}
 	stb->size = 0;
 	stb->capacity = size;
 }
